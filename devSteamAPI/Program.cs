@@ -64,7 +64,9 @@ builder.Services.AddIdentityApiEndpoints<IdentityUser>(options =>
     options.SignIn.RequireConfirmedEmail = false;
     options.SignIn.RequireConfirmedAccount = false;
     options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireLowercase = false;
     options.Password.RequireUppercase = false;
+    options.Password.RequireDigit = false;
     options.Password.RequiredLength = 4;
 
 })
@@ -84,7 +86,7 @@ app.UseSwaggerUI();
 
 //Mapear os EndPoints padrão do Identity Framework
 app.MapGroup("/Usuario").MapIdentityApi<IdentityUser>();
-app.MapGroup("/Usuario").MapIdentityApi<IdentityRole>();
+//app.MapGroup("/Usuario").MapIdentityApi<IdentityRole>();
 
 
 
